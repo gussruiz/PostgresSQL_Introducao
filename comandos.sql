@@ -121,11 +121,3 @@ select * from aluno where nome_aluno like 'G%' and cpf is not null;
 select * from aluno where nome_aluno like 'Gustavo' or nome_aluno like 'Rodrigo' or nome_aluno like 'Nico%'; 
 
 -- aula 4
-
-
-
-
-
-
-
-
