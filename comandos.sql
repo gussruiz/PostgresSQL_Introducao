@@ -78,3 +78,54 @@ select * from aluno;
 
 -- aula 3
 
+select nome_aluno as "Nome do aluno", idade, matriculado_em as "Quanod se Matriculou" from aluno where id = 1;
+
+INSERT INTO aluno (nome_aluno) VALUES ('Vinícius Dias');
+INSERT INTO aluno (nome_aluno) VALUES ('Nico Steppat');
+INSERT INTO aluno (nome_aluno) VALUES ('João Roberto');
+INSERT INTO aluno (nome_aluno) VALUES ('Diego');
+
+select * from aluno where nome_aluno = 'Gustavo';
+
+select * from aluno where nome_aluno <> 'Gustavo'; --diferente 
+
+select * from aluno where nome_aluno != 'Gustavo';
+
+select * from aluno where nome_aluno like 'Gus_avo'; -- torna o caracter um coringa, pode ser qualuqer um mas que tenha o resto como igual
+
+select * from aluno where nome_aluno not like 'Gus_avo'; -- mesma coisa porem com inversão
+
+select * from aluno where nome_aluno like 'G%'; -- semelhante ao anterior mas ao inves de um grupo de letras ser definido aqui apenas uma letra
+
+select * from aluno where nome_aluno like '%i%a%'; -- pode ser agrupado também 
+
+
+
+select * from aluno where cpf is null;
+
+select * from aluno where cpf is not null;
+
+select * from aluno where idade = 21;
+
+select * from aluno where idade <> 21; -- <> mesma coisa que !=
+
+select * from aluno where idade >= 21;
+
+select * from aluno where idade <= 21;
+
+select * from aluno where idade between 15 and 25;
+
+
+select * from aluno where nome_aluno like 'G%' and cpf is not null;
+
+select * from aluno where nome_aluno like 'Gustavo' or nome_aluno like 'Rodrigo' or nome_aluno like 'Nico%'; 
+
+-- aula 4
+
+
+
+
+
+
+
+
