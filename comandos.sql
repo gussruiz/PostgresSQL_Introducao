@@ -121,3 +121,81 @@ select * from aluno where nome_aluno like 'G%' and cpf is not null;
 select * from aluno where nome_aluno like 'Gustavo' or nome_aluno like 'Rodrigo' or nome_aluno like 'Nico%'; 
 
 -- aula 4
+drop table curso;
+CREATE TABLE curso (
+    id INTEGER primary key,
+    nome VARCHAR(255) not null 
+);
+
+INSERT INTO curso (id, nome) VALUES (1, 'HTML');
+INSERT INTO curso (id, nome) VALUES (2, 'Javascript');
+
+
+select * from curso;
+
+
+drop table aluno;
+
+create table aluno (
+    id serial primary key,
+    nome varchar(255) not null
+);
+
+insert into aluno (nome) values ('Diogo');
+insert into aluno (nome) values ('Vinicius');
+
+select * from aluno;
+
+create table aluno_curso(
+	aluno_id integer,
+	curso_id integer,
+	primary key(aluno_id, curso_id),
+	
+	foreign key (aluno_id)
+	references aluno (id),
+	
+	foreign key (curso_id)
+	references curso (id)	
+);
+
+insert into aluno_curso(aluno_id, curso_id) values(1,1);
+insert into aluno_curso(aluno_id, curso_id) values(2,1);
+insert into aluno_curso(aluno_id, curso_id) values(3,1);
+
+select * from aluno_curso;
+
+drop table aluno_curso;
+
+select * from aluno;
+select * from curso;
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+	join aluno_curso on aluno_curso.aluno_id = aluno.id
+	join curso on curso.id = aluno_curso.curso_id;
+	
+insert into aluno_curso (aluno_id, curso_id) values (2,2);
+
+
+insert into aluno (nome) values('Nico');
+
+insert into curso (id, nome) values (3,'CSS');
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+	left join aluno_curso on aluno_curso.aluno_id = aluno.id
+	left join curso on curso.id = aluno_curso.curso_id;
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+	right join aluno_curso on aluno_curso.aluno_id = aluno.id
+	right join curso on curso.id = aluno_curso.curso_id;
+
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+	full join aluno_curso on aluno_curso.aluno_id = aluno.id
+	full join curso on curso.id = aluno_curso.curso_id;
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+	cross join curso;
+
+insert into aluno (nome) values('João');
+
+-- aula 5
